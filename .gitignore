@@ -1,0 +1,19 @@
+# Virtual Environment
+.leatherHandcraftVENV/
+.env
+env/
+
+#django
+__pycache__/
+db.sqlite3
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

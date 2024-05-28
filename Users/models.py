@@ -11,7 +11,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 """
 class CustomUserManager(BaseUserManager):
   
-  def create_user(self, email, password, **extra_fields):
+  def create_user(self, email, password=None, **extra_fields):
     if not email:
       raise ValueError('Email must be set')
     # hàm này normalize_email() dùng để chuẩn hóa email, đảm bảo tính nhất quán
@@ -20,7 +20,7 @@ class CustomUserManager(BaseUserManager):
     # truyền vào địa chỉ email và bất kỳ trường bổ sung nào thông qua **extra_fields
     user = self.model(email=email, **extra_fields)
     user.set_password(password)
-    user.save()
+    user.save(using=self._db)
     return user
   
   def create_superuser(self, email, password, **extra_fields):

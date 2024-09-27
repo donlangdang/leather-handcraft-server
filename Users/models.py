@@ -10,7 +10,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
   
 """
 class CustomUserManager(BaseUserManager):
-  Không yêu cầu mật khẩu ngay từ đầu: Khi tạo một người dùng, có thể có các trường hợp bạn chưa có mật khẩu ngay lập tức. Đặt password=None làm mặc định giúp bạn linh hoạt hơn. Bạn có thể tạo người dùng mà không cần phải cung cấp mật khẩu ngay lập tức (ví dụ: khi sử dụng OAuth, Google Sign-In, hoặc gửi email để đặt mật khẩu sau).
+  # Không yêu cầu mật khẩu ngay từ đầu: Khi tạo một người dùng, có thể có các trường hợp bạn chưa có mật khẩu ngay lập tức. Đặt password=None làm mặc định giúp bạn linh hoạt hơn. Bạn có thể tạo người dùng mà không cần phải cung cấp mật khẩu ngay lập tức (ví dụ: khi sử dụng OAuth, Google Sign-In, hoặc gửi email để đặt mật khẩu sau).
   def create_user(self, email, password=None, **extra_fields):
     if not email:
       raise ValueError('Email must be set')
